@@ -1,28 +1,71 @@
-# SxrUi
+# About SXRUI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.1.
+This is the serverless cross region UI that displays a bare bones 
+ticketing system.
 
-## Development server
+# Assumptions
+- Facebook never goes down.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Requirements
 
-## Code scaffolding
+- a facebook dev account.
+- local environment with node, npm, angular2.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Instructions
 
-## Build
+- Cognito
+  - deploy cognito.yaml
+  - after deployment is finished take a look at the outputs tab. You will 
+  uses these ids in subsequent steps.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+- Facebook
+  - Create a facebook developer account.
+  - create an application 
 
-## Running unit tests
+- User Interface
+  - check out application code from [TODO: insert github repo]
+  - update application code with cognito and facebook ids.
+  - take face book application id from previous step and update 
+    [environment.ts](./src/environments/environment.ts) (See TODO Comments)
+  - 
+  
+# Fail over
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**W/O R53 Ideas**
+* will need 2 cognito and api gateway setups in 2 regions.
+* client will have to be smart enough to determine which region.
+  * will need to store configurations for 2 regions?
+  * will need to health check region 1 and fail over to region 2?
+  
 
-## Running end-to-end tests
+# TODOs
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+- [ ] get api should return array even when only one item is returned
+- [ ] had to manually add CORS headers for options pre flight check - need to add this to cfn.
+- [ ] on insert/update/post return the object that was created/updated.
+- [ ] need api to return all tickets for userid (user id will be email)
+- [ ] api returning error response on no row returned - 200?
+- [X] fix facebook/cognito auth
+- [ ] Nice to Have: protect api w/ custom authorizer using facebook.
+- [ ] Facebook federation needs to be added to cfn template.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+# Development
+
+In order to start the project locally use:
+```bash
+
+$ npm install
+# install the project's dependencies
+
+$ npm start
+# watches your files and uses livereload by default run `npm start` 
+# for a dev server. Navigate to `http://localhost:4200/`. 
+# The app will automatically reload if you change any of the source files.
+
+$ npm run build
+# prod build, will output the production application in `dist`
+# the produced code can be deployed (rsynced) to a remote server
+
+```
