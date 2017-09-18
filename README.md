@@ -25,11 +25,18 @@ ticketing system.
 - User Interface
   - check out application code from [TODO: insert github repo]
   - update application code with cognito and facebook ids.
+  - follow development instructions below to bring up your app in dev mode.
   - take face book application id from previous step and update 
     [environment.ts](./src/environments/environment.ts) (See TODO Comments)
   - 
   
-# Fail over
+# Issues to address
+
+* Cognito API requires you specify a region. Does this imply we will 
+maintain 2 code bases, one for each region?
+
+* Facebook app id: will users create their own facebook account or 
+will we have a master account for all participants?
 
 **W/O R53 Ideas**
 * will need 2 cognito and api gateway setups in 2 regions.
