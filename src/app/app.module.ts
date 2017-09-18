@@ -11,18 +11,22 @@ import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import { TicketListComponent } from './components/ticket-list/ticket-list.component';
 import { TicketDetailComponent } from './components/ticket-detail/ticket-detail.component';
+import { TicketComponent } from './views/ticket/ticket.component';
+import { CognitoToolsComponent } from './views/cognito-tools/cognito-tools.component';
+import { LoginComponent } from './views/login/login.component';
+import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TicketListComponent,
-    TicketDetailComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    FacebookModule.forRoot()
+    FacebookModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [
     AWSService,
