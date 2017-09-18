@@ -14,7 +14,7 @@ ticketing system.
 # Instructions
 
 - Cognito
-  - deploy cognito.yaml
+  - deploy [cognito.yaml](./cfn/cognito.yaml) via CloudFormation console.
   - after deployment is finished take a look at the outputs tab. You will 
   uses these ids in subsequent steps.
 
