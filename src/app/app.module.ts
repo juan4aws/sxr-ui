@@ -9,12 +9,9 @@ import {WildRydesService} from './services/wildrydes.service';
 import { FacebookModule } from 'ngx-facebook';
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
-import { TicketListComponent } from './components/ticket-list/ticket-list.component';
-import { TicketDetailComponent } from './components/ticket-detail/ticket-detail.component';
-import { TicketComponent } from './views/ticket/ticket.component';
-import { CognitoToolsComponent } from './views/cognito-tools/cognito-tools.component';
 import { LoginComponent } from './views/login/login.component';
 import {AppRoutingModule} from './app-routing.module';
+import {AuthGuard} from './shared/guard/auth.guard';
 
 @NgModule({
   declarations: [
@@ -33,8 +30,10 @@ import {AppRoutingModule} from './app-routing.module';
     CognitoService,
     CognitoRegistrationService,
     CognitoLoginService,
-    WildRydesService
+    WildRydesService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

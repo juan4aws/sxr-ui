@@ -23,6 +23,6 @@ export class ViewsComponent implements OnInit {
     localStorage.removeItem('isLoggedin');
     this.cognitoLoginService.logout();
 
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/home']);
   }
 }

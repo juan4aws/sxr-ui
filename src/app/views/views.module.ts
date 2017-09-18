@@ -6,7 +6,6 @@ import {CognitoToolsComponent} from './cognito-tools/cognito-tools.component';
 import { HomeComponent } from './home/home.component';
 import {TicketListComponent} from '../components/ticket-list/ticket-list.component';
 import {FormsModule} from '@angular/forms';
-import {TicketDetailComponent} from '../components/ticket-detail/ticket-detail.component';
 
 @NgModule({
   imports: [
@@ -19,8 +18,7 @@ import {TicketDetailComponent} from '../components/ticket-detail/ticket-detail.c
     HomeComponent,
     CognitoToolsComponent,
     HomeComponent,
-    TicketListComponent,
-    TicketDetailComponent
+    TicketListComponent
   ]
 })
 export class ViewsModule { }
