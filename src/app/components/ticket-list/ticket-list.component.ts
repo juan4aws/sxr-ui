@@ -24,11 +24,24 @@ export class TicketListComponent implements OnInit {
 
   tickets: Array<ITicket>;
 
-  constructor(public ticketService: TicketService) { }
+  rows = [];
+
+  columns = [
+    { prop: 'name' },
+    { name: 'Gender' },
+    { name: 'Company' }
+  ];
+
+  constructor(public ticketService: TicketService) {
+    this.ticketService.getTickets()
+      .subscribe(tickets => {
+        console.log('DATA:' + tickets);
+        this.rows = tickets.Items;
+        console.log('ROWS:' + this.rows);
+      });
+  }
 
   ngOnInit() {
-    this.ticketService.getTickets()
-      .subscribe(tickets => this.tickets = tickets);
   }
 
   onSubmit(form: FormGroup) {

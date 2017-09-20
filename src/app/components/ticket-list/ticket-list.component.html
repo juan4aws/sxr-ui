@@ -53,3 +53,20 @@
     </div>
   </div>
 </form>
+
+<div>
+  <ngx-datatable
+    class="material"
+    [rows]="rows"
+    [columns]="[
+      {name:'assigned'},
+      {name:'priority'},
+      {name:'status'},
+      {name:'createdOn'},
+      {name:'createdBy'}
+      ]"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    [rowHeight]="'auto'">
+  </ngx-datatable>
+</div>
