@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ITicket} from '../../model/ticket';
 import {FormGroup} from '@angular/forms';
+import {TicketService} from '../../services/ticket.service';
 
 @Component({
   selector: 'app-ticket-list',
@@ -16,12 +17,18 @@ export class TicketListComponent implements OnInit {
     description: '',
     assigned: '',
     priority: '',
-    status: ''
+    status: '',
+    createdBy: '',
+    createdOn: ''
   };
 
-  constructor() { }
+  tickets: Array<ITicket>;
+
+  constructor(public ticketService: TicketService) { }
 
   ngOnInit() {
+    this.ticketService.getTickets()
+      .subscribe(tickets => this.tickets = tickets);
   }
 
   onSubmit(form: FormGroup) {

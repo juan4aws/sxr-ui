@@ -76,3 +76,11 @@ $ npm run build
 # the produced code can be deployed (rsynced) to a remote server
 
 ```
+
+
+# Reference
+
+#### serverless topics
+- [continuous-deployment](https://aws.amazon.com/blogs/compute/continuous-deployment-for-serverless-applications/)
+#### ng
+- [routing and nav](https://angular.io/guide/router)

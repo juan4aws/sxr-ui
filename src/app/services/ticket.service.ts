@@ -5,9 +5,9 @@ import 'rxjs/add/operator/map';
 import {CognitoService} from './cognito.service';
 
 @Injectable()
-export class WildRydesService {
+export class TicketService {
 
-    private _API_ROOT = environment.wildRydesAPI;
+    private _API_ROOT = environment.ticketAPI;
 
     currentTickets: any = [
         {
@@ -23,8 +23,8 @@ export class WildRydesService {
      *
      * @returns {Observable<any>}
      */
-    getRidesForUser() {
-        return this.http.get(this._API_ROOT + 'ratings/demo-ride-id/' + this.cognitoService.currentEmailID)
+    getTickets() {
+        return this.http.get(this._API_ROOT + 'ticket')
             .map((res: Response) => res.json());
     }
 

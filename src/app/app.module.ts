@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {AWSService} from './services/aws.service';
 import {CognitoLoginService, CognitoRegistrationService, CognitoService} from './services/cognito.service';
-import {WildRydesService} from './services/wildrydes.service';
+import {TicketService} from './services/ticket.service';
 
 import { FacebookModule } from 'ngx-facebook';
 import {HttpModule} from '@angular/http';
@@ -30,7 +30,7 @@ import {AuthGuard} from './shared/guard/auth.guard';
     CognitoService,
     CognitoRegistrationService,
     CognitoLoginService,
-    WildRydesService,
+    TicketService,
     AuthGuard
   ],
   bootstrap: [AppComponent]

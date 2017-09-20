@@ -4,4 +4,6 @@ export interface ITicket {
   assigned: string;
   priority: string;
   status: string;
+  createdBy: string;
+  createdOn: string;
 }
