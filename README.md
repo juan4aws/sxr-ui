@@ -13,22 +13,31 @@ ticketing system.
 
 # Instructions
 
+- API
+  - execute instructions from 
+  
 - Cognito
   - deploy [cognito.yaml](./cfn/cognito.yaml) via CloudFormation console.
   - after deployment is finished take a look at the outputs tab. You will 
-  uses these ids in subsequent steps.
+  use these ids in subsequent steps.
+  
+- create an S3 bucket to host your UI. (will cfn this later)
 
 - Facebook
   - Create a facebook developer account.
-  - create an application 
+  - create an application and get the application id
+  - add this application id to [environment.ts](./src/environments/environment.ts)
+  and replace facebookAppId (see TODO 2)
+  - 
 
 - User Interface
   - check out application code from [TODO: insert github repo]
-  - update application code with cognito and facebook ids.
-  - follow development instructions below to bring up your app in dev mode.
-  - take face book application id from previous step and update 
-    [environment.ts](./src/environments/environment.ts) (See TODO Comments)
-  - 
+  - update [environment.ts](./src/environments/environment.ts) 
+  with ids from cfn output and facebook app id.
+  - compile your app by typing ` npm run build `
+  - you can now deply contents of dist folder to your s3 bucket.
+  - cd into dist folder and execute ` aws s3 sync . [bucketName] `
+  
   
 # Issues to address
 
@@ -46,15 +55,11 @@ will we have a master account for all participants?
   
 
 # TODOs
-
-- [ ] get api should return array even when only one item is returned
-- [ ] had to manually add CORS headers for options pre flight check - need to add this to cfn.
-- [ ] on insert/update/post return the object that was created/updated.
-- [ ] need api to return all tickets for userid (user id will be email)
-- [ ] api returning error response on no row returned - 200?
+- [ ] create cfn template to create static ui bucket.
 - [X] fix facebook/cognito auth
 - [ ] Nice to Have: protect api w/ custom authorizer using facebook.
-- [ ] Facebook federation needs to be added to cfn template.
+- [ ] Facebook App ID for federation needs to be added to cognito cfn template.
+- [ ] clean up unused code from cognito service
 
 
 
