@@ -412,7 +412,7 @@ export class CognitoLoginService {
             this.cognitoService.getCurrentUser().signOut();
         }
 
-        AWS.config.credentials.clearCachedId();
+        // AWS.config.credentials.clearCachedId();
         AWS.config.credentials = null;
     }
 
