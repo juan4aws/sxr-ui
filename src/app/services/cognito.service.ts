@@ -3,6 +3,7 @@ import {FacebookService, InitParams, LoginOptions, LoginResponse} from 'ngx-face
 import {environment} from '../../environments/environment';
 
 /**
+ * TODO: cleanup unused code
  */
 
 declare var AWSCognito: any;
@@ -30,9 +31,9 @@ export class CognitoService {
 
     public static _REGION = environment.region;
 
-    public static _IDENTITY_POOL_ID = environment.identityPoolId;
-    public static _USER_POOL_ID = environment.userPoolId;
-    public static _CLIENT_ID = environment.clientId;
+    public static _IDENTITY_POOL_ID = environment.cognitoIdentityPoolId;
+    public static _USER_POOL_ID = environment.cognitoUserPoolId;
+    public static _CLIENT_ID = environment.cognitoUserPoolClientId;
 
     public static _POOL_DATA = {
         UserPoolId: CognitoService._USER_POOL_ID,
