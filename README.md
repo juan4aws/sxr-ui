@@ -38,7 +38,9 @@ aws cloudformation deploy \
 - Facebook
   - Create a facebook developer account.
   - create an application and save the application id
-  - Add this facebook app id to the Cognito identity pool under authentication providers --> facebook.
+  - Configure this app with domain and site url from your bucket 
+  (TODO: include images and detailed how to as this could stump users).
+  - Add this facebook app id to the Cognito identity pool under authentication providers --> facebook. (TODO: cfn'ify this)
 
 - User Interface
   - check out application code from [TODO: insert github repo]
